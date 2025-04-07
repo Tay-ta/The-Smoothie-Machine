@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Smoothie Machine</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+  <h1>Smoothie Machine</h1>
+
+  <section class="menu">
+    <div class="card">
+      <h2>Monstrous Mint</h2>
+      <img src="images/chocolate-mint.svg" alt="Mint Smoothie" />
+      <ul>
+        <li>peppermint cream</li>
+        <li>dark chocolate chips</li>
+        <li>vanilla extract</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Perfect Peach Mango</h2>
+      <img src="images/peach-mango.svg" alt="Peach Mango Smoothie" />
+      <ul>
+        <li>peach purée</li>
+        <li>mango chunks</li>
+        <li>clover honey</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Fruity Fantasy</h2>
+      <img src="images/ice-cream-xtra1.svg" alt="Fruity Smoothie" />
+      <ul>
+        <li>kiwi</li>
+        <li>pineapple</li>
+        <li>coconut milk</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Berry Cherry Blast</h2>
+      <img src="images/ice-cream-xtra2.svg" alt="Berry Smoothie" />
+      <ul>
+        <li>blueberry</li>
+        <li>cherry chunks</li>
+        <li>vanilla</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Strawberry Sprinkle</h2>
+      <img src="images/strawberry-sprinkle.svg" alt="Strawberry Smoothie" />
+      <ul>
+        <li>strawberry</li>
+        <li>sprinkles</li>
+        <li>whipped cream</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr/>
+
+  <section class="order-section">
+    <h2>Order Your Smoothie</h2>
+    <form id="smoothieForm">
+      <label for="flavor">Choose a smoothie:</label>
+      <select id="flavor" name="flavor">
+        <option value="mint">Monstrous Mint</option>
+        <option value="peach-mango">Perfect Peach Mango</option>
+        <option value="fruity">Fruity Fantasy</option>
+        <option value="berry">Berry Cherry Blast</option>
+        <option value="strawberry">Strawberry Sprinkle</option>
+      </select>
+      <br><br>
+      <button type="submit">Order Now</button>
+    </form>
+
+    <div id="output"></div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
