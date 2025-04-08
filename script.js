@@ -10,7 +10,7 @@ class Smoothie{
     // make a message about smoothie info
     describe(){
     const total=(this.price*this.quantity).toFixed(2);
-    return `You ordered <strong>${this.quantity}</strong> x <strong>${this.name}</strong> on the way.<br>Total: $${total}`;
+    return `You ordered ${this.quantity}x ${this.name} on the way.<br>Total: $${total}`;
     }
     }
     
@@ -41,20 +41,26 @@ class Smoothie{
     price:4.89
     }
     };
-    
+    // smoothie object selected by the current user (temporary storage)
     let currentSmoothie=null;
     
-// when click on card -> open the modal with smoothie info
-    
+
+// Add a click event to each card that displays an order popup when clicked.    
 document.querySelectorAll('.card').forEach(card=>{
    card.addEventListener('click',()=>{
+    // Key converted to menu object based on card title
     const flavorId=card.querySelector('h2').innerText.toLowerCase().replace(/ /g,'-');
+    // Get the corresponding smoothie data
     const smoothie=smoothieMenu[flavorId];
+    // Display the smoothie name, ingredients, and price in the modal
     document.getElementById('modalTitle').innerText=smoothie.name;
     document.getElementById('modalIngredients').innerText='Ingredients: '+smoothie.ingredients.join(', ');
     document.getElementById('modalPrice').innerText='Price: $'+smoothie.price.toFixed(2);
+    // Display the modal
     document.getElementById('orderModal').style.display='flex';
+    // Set the initial quantity to 1
     document.getElementById('quantity').innerText=1;
+    // Store the selected smoothie data in currentSmoothie
     currentSmoothie={...smoothie,id:flavorId};
     });
 });
@@ -80,17 +86,19 @@ document.getElementById('closeModal').addEventListener('click',()=>{
     
 // when click Order Now button
 document.getElementById('confirmOrder').addEventListener('click',()=>{
+    // Get the quantity from the quantity input
     const qty=parseInt(document.getElementById('quantity').innerText);
+    // Create a new Smoothie object with the selected smoothie data and quantity
     const smoothie=new Smoothie(currentSmoothie.name,currentSmoothie.ingredients,currentSmoothie.price,qty);
-    
+    // Display the order details in the output area
     const output=document.getElementById('output');
     const order=document.createElement('div');
     order.innerHTML=smoothie.describe();
     output.appendChild(order);
-    
+    // Close the first modal
 document.getElementById('orderModal').style.display='none';
     
-// show second confirm modal
+  // Set the content of the confirmation modal
 const confirmText=`
     <p>Your order:</p>
     <strong>${qty} x ${smoothie.name}</strong><br>
@@ -98,7 +106,7 @@ const confirmText=`
     Total: $${(smoothie.price*qty).toFixed(2)}<br>
     <em>On the way, thank you!</em>
     `;
-    
+    // Display the confirmation modal
 document.getElementById('confirmDetails').innerHTML=confirmText;
 document.getElementById('confirmModal').style.display='flex';
 });
