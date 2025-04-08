@@ -10,7 +10,10 @@
 
   <h1>Smoothie Machine</h1>
 
+
   <section class="menu">
+
+    <!-- Smoothie card: Monstrous Mint -->
     <div class="card">
       <h2>Monstrous Mint</h2>
       <img src="images/chocolate-mint.svg" alt="Mint Smoothie" />
@@ -21,6 +24,7 @@
       </ul>
     </div>
 
+    <!-- Smoothie card: Perfect Peach Mango -->
     <div class="card">
       <h2>Perfect Peach Mango</h2>
       <img src="images/peach-mango.svg" alt="Peach Mango Smoothie" />
@@ -31,6 +35,7 @@
       </ul>
     </div>
 
+    <!-- Smoothie card: Fruity Fantasy -->
     <div class="card">
       <h2>Fruity Fantasy</h2>
       <img src="images/ice-cream-xtra1.svg" alt="Fruity Smoothie" />
@@ -41,6 +46,7 @@
       </ul>
     </div>
 
+    <!-- Smoothie card: Berry Cherry Blast -->
     <div class="card">
       <h2>Berry Cherry Blast</h2>
       <img src="images/ice-cream-xtra2.svg" alt="Berry Smoothie" />
@@ -51,6 +57,7 @@
       </ul>
     </div>
 
+    <!-- Smoothie card: Strawberry Sprinkle -->
     <div class="card">
       <h2>Strawberry Sprinkle</h2>
       <img src="images/strawberry-sprinkle.svg" alt="Strawberry Smoothie" />
@@ -64,26 +71,45 @@
 
   <hr/>
 
+  <!-- Order output area -->
   <section class="order-section">
-    <h2>Order Your Smoothie</h2>
-    <form id="smoothieForm">
-      <label for="flavor">Choose a smoothie:</label>
-      <select id="flavor" name="flavor">
-        <option value="mint">Monstrous Mint</option>
-        <option value="peach-mango">Perfect Peach Mango</option>
-        <option value="fruity">Fruity Fantasy</option>
-        <option value="berry">Berry Cherry Blast</option>
-        <option value="strawberry">Strawberry Sprinkle</option>
-      </select>
-      <br><br>
-      <button type="submit">Order Now</button>
-    </form>
-
+    <h2>Your Order:</h2>
     <div id="output"></div>
   </section>
- <footer>
-    <p>Created by Xiang Lu - 200563938 @ Georgian College</p>
- </footer>
- 
+
+  <!-- First Modal: choose smoothie quantity -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2 id="modalTitle">Smoothie Name</h2>
+      <p id="modalIngredients">Ingredients</p>
+      <p id="modalPrice">Price: $0.00</p>
+
+      <!-- Quantity selector -->
+      <div class="quantity-control">
+        <button id="minusBtn">-</button>
+        <span id="quantity">0</span>
+        <button id="plusBtn">+</button>
+      </div>
+
+      <!-- Button to confirm order -->
+      <button id="confirmOrder">Order Now</button>
+    </div>
+  </div>
+
+  <!-- Second Modal: confirm order info -->
+  <div class="modal" id="confirmModal">
+    <div class="modal-content">
+      <h2>Thank you for your order!</h2>
+      <p id="confirmDetails"></p>
+      <button id="closeConfirm">Close</button>
+    </div>
+  </div>
+
 </body>
+
+<footer>
+  <p>Created by Xiang Lu - 200563938 @ Georgian College</p>
+</footer>
+
 </html>
