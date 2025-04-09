@@ -101,7 +101,7 @@ document.getElementById('orderModal').style.display='none';
   // Set the content of the confirmation modal
 const confirmText=`
     <p>Your order:</p>
-    <strong>${qty} x ${smoothie.name}</strong><br>
+    ${qty} x ${smoothie.name}<br>
     Ingredients: ${smoothie.ingredients.join(', ')}<br>
     Total: $${(smoothie.price*qty).toFixed(2)}<br>
     <em>On the way, thank you!</em>
